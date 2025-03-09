@@ -40,7 +40,6 @@ export const login = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // Fix: Use promise() and array destructuring
     const [users] = await pool
       .promise()
       .query('SELECT * FROM users WHERE email = ? AND username = ?', [
